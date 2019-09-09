@@ -1,7 +1,7 @@
 ---
 swagger: '2.0'
 info:
-  title: 'Riot League of Legends API'
+  title: 'League of Legends API'
   version: 'v4'
   termsOfService: 'https://developer.riotgames.com/terms'
 basePath: '/lol'

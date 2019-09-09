@@ -2,15 +2,15 @@ package wrapper
 
 import (
 	lolclient "github.com/andresperezl/gol/lolapi/client"
-	"github.com/andresperezl/gol/wrapper/champion"
-	"github.com/andresperezl/gol/wrapper/champion_mastery"
-	"github.com/andresperezl/gol/wrapper/region"
+	"github.com/andresperezl/gol/client/champion"
+	"github.com/andresperezl/gol/client/champion_mastery"
+	"github.com/andresperezl/gol/client/region"
 	"github.com/go-openapi/runtime"
 	goapiclient "github.com/go-openapi/runtime/client"
 )
 
 type GoLClient struct {
-	lolClient       *lolclient.Lol
+	lolClient       *lolclient.LeagueOfLegends
 	authInfo        runtime.ClientAuthInfoWriter
 	Champion        *champion.Client
 	ChampionMastery *champion_mastery.Client

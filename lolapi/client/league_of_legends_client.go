@@ -15,7 +15,7 @@ import (
 	"github.com/andresperezl/gol/lolapi/client/champion_mastery"
 )
 
-// Default lolapi HTTP client.
+// Default league of legends HTTP client.
 var Default = NewHTTPClient(nil)
 
 const (
@@ -30,14 +30,14 @@ const (
 // DefaultSchemes are the default schemes found in Meta (info) section of spec file
 var DefaultSchemes = []string{"https"}
 
-// NewHTTPClient creates a new lolapi HTTP client.
-func NewHTTPClient(formats strfmt.Registry) *Lolapi {
+// NewHTTPClient creates a new league of legends HTTP client.
+func NewHTTPClient(formats strfmt.Registry) *LeagueOfLegends {
 	return NewHTTPClientWithConfig(formats, nil)
 }
 
-// NewHTTPClientWithConfig creates a new lolapi HTTP client,
+// NewHTTPClientWithConfig creates a new league of legends HTTP client,
 // using a customizable transport config.
-func NewHTTPClientWithConfig(formats strfmt.Registry, cfg *TransportConfig) *Lolapi {
+func NewHTTPClientWithConfig(formats strfmt.Registry, cfg *TransportConfig) *LeagueOfLegends {
 	// ensure nullable parameters have default
 	if cfg == nil {
 		cfg = DefaultTransportConfig()
@@ -48,14 +48,14 @@ func NewHTTPClientWithConfig(formats strfmt.Registry, cfg *TransportConfig) *Lol
 	return New(transport, formats)
 }
 
-// New creates a new lolapi client
-func New(transport runtime.ClientTransport, formats strfmt.Registry) *Lolapi {
+// New creates a new league of legends client
+func New(transport runtime.ClientTransport, formats strfmt.Registry) *LeagueOfLegends {
 	// ensure nullable parameters have default
 	if formats == nil {
 		formats = strfmt.Default
 	}
 
-	cli := new(Lolapi)
+	cli := new(LeagueOfLegends)
 	cli.Transport = transport
 
 	cli.Champion = champion.New(transport, formats)
@@ -104,8 +104,8 @@ func (cfg *TransportConfig) WithSchemes(schemes []string) *TransportConfig {
 	return cfg
 }
 
-// Lolapi is a client for lolapi
-type Lolapi struct {
+// LeagueOfLegends is a client for league of legends
+type LeagueOfLegends struct {
 	Champion *champion.Client
 
 	ChampionMastery *champion_mastery.Client
@@ -114,7 +114,7 @@ type Lolapi struct {
 }
 
 // SetTransport changes the transport on the client and all its subresources
-func (c *Lolapi) SetTransport(transport runtime.ClientTransport) {
+func (c *LeagueOfLegends) SetTransport(transport runtime.ClientTransport) {
 	c.Transport = transport
 
 	c.Champion.SetTransport(transport)

@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	golClient "github.com/andresperezl/gol/wrapper"
-	"github.com/andresperezl/gol/wrapper/region"
+	golClient "github.com/andresperezl/gol/client"
+	"github.com/andresperezl/gol/client/region"
 )
 
 func main() {
