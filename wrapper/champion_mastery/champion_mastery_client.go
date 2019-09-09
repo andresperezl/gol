@@ -1,8 +1,8 @@
 package champion_mastery
 
 import (
-	"github.com/andresperezl/gol/client/champion_mastery"
-	"github.com/andresperezl/gol/models"
+	"github.com/andresperezl/gol/lolapi/client/champion_mastery"
+	"github.com/andresperezl/gol/lolapi/models"
 	"github.com/go-openapi/runtime"
 )
 

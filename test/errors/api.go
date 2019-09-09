@@ -2,7 +2,7 @@ package errors
 
 import (
 	"fmt"
-	"github.com/andresperezl/gol/models"
+	"github.com/andresperezl/gol/lolapi/models"
 	"github.com/go-openapi/errors"
 	"net/http"
 	"reflect"

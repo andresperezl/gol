@@ -2,7 +2,7 @@ package champion_mastery
 
 import (
 	"encoding/json"
-	"github.com/andresperezl/gol/models"
+	"github.com/andresperezl/gol/lolapi/models"
 	"github.com/andresperezl/gol/test/restapi/operations/champion_mastery"
 	"github.com/go-openapi/runtime/middleware"
 	"strings"

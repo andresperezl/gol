@@ -1,8 +1,8 @@
 package champion
 
 import (
-	"github.com/andresperezl/gol/client/champion"
-	"github.com/andresperezl/gol/models"
+	"github.com/andresperezl/gol/lolapi/client/champion"
+	"github.com/andresperezl/gol/lolapi/models"
 	"github.com/go-openapi/runtime"
 )
 

@@ -1,7 +1,7 @@
 package champion
 
 import (
-	"github.com/andresperezl/gol/models"
+	"github.com/andresperezl/gol/lolapi/models"
 	"github.com/andresperezl/gol/test/restapi/operations/champion"
 	"github.com/go-openapi/runtime/middleware"
 )

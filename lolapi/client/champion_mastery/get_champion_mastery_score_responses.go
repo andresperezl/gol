@@ -13,7 +13,7 @@ import (
 
 	strfmt "github.com/go-openapi/strfmt"
 
-	models "github.com/andresperezl/gol/models"
+	models "github.com/andresperezl/gol/lolapi/models"
 )
 
 // GetChampionMasteryScoreReader is a Reader for the GetChampionMasteryScore structure.

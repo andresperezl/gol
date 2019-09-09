@@ -13,7 +13,7 @@ import (
 
 	strfmt "github.com/go-openapi/strfmt"
 
-	models "github.com/andresperezl/gol/models"
+	models "github.com/andresperezl/gol/lolapi/models"
 )
 
 // GetChampionInfoReader is a Reader for the GetChampionInfo structure.

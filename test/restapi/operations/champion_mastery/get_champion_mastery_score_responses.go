@@ -10,7 +10,7 @@ import (
 
 	"github.com/go-openapi/runtime"
 
-	"github.com/andresperezl/gol/models"
+	"github.com/andresperezl/gol/lolapi/models"
 )
 
 // GetChampionMasteryScoreOKCode is the HTTP code returned for type GetChampionMasteryScoreOK

@@ -1,7 +1,7 @@
 package wrapper
 
 import (
-	lolclient "github.com/andresperezl/gol/client"
+	lolclient "github.com/andresperezl/gol/lolapi/client"
 	"github.com/andresperezl/gol/wrapper/champion"
 	"github.com/andresperezl/gol/wrapper/champion_mastery"
 	"github.com/andresperezl/gol/wrapper/region"
