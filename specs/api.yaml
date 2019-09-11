@@ -161,7 +161,7 @@ paths:
         504:
           '$ref': '#/responses/GatewayTimeout'
 definitions:
-  Error:
+  APIError:
     type: object
     readOnly: true
     properties:
@@ -283,47 +283,47 @@ responses:
   BadRequest:
     description: 'Bad request'
     schema:
-      '$ref': '#/definitions/Error'
+      '$ref': '#/definitions/APIError'
   Unauthorized:
     description: 'Unauthorized'
     schema:
-      '$ref': '#/definitions/Error'
+      '$ref': '#/definitions/APIError'
   Forbidden:
     description: 'Forbidden'
     schema:
-      '$ref': '#/definitions/Error'
+      '$ref': '#/definitions/APIError'
   NotFound:
     description: 'Not found'
     schema:
-      '$ref': '#/definitions/Error'
+      '$ref': '#/definitions/APIError'
   MethodNotAllowed:
     description: 'Method not allowed'
     schema:
-      '$ref': '#/definitions/Error'
+      '$ref': '#/definitions/APIError'
   UnsopportedMediaType:
     description: 'Unsopported media type'
     schema:
-      '$ref': '#/definitions/Error'
+      '$ref': '#/definitions/APIError'
   RateLimitExceeded:
     description: 'Rate limit Exceeded'
     schema:
-      '$ref': '#/definitions/Error'
+      '$ref': '#/definitions/APIError'
   IntenalServerError:
     description: 'Internal server error'
     schema:
-      '$ref': '#/definitions/Error'
+      '$ref': '#/definitions/APIError'
   BadGateway:
     description: 'Bad gateway'
     schema:
-      '$ref': '#/definitions/Error'
+      '$ref': '#/definitions/APIError'
   ServiceUnavailable:
     description: 'Service Unavailable'
     schema:
-      '$ref': '#/definitions/Error'
+      '$ref': '#/definitions/APIError'
   GatewayTimeout:
     description: 'Gateway timeout'
     schema:
-      '$ref': '#/definitions/Error'
+      '$ref': '#/definitions/APIError'
 securityDefinitions:
   APIKeyHeader:
     type: apiKey

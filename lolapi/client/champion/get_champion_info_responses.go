@@ -145,20 +145,20 @@ func NewGetChampionInfoBadRequest() *GetChampionInfoBadRequest {
 Bad request
 */
 type GetChampionInfoBadRequest struct {
-	Payload *models.Error
+	Payload *models.APIError
 }
 
 func (o *GetChampionInfoBadRequest) Error() string {
 	return fmt.Sprintf("[GET /platform/v3/champion-rotations][%d] getChampionInfoBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *GetChampionInfoBadRequest) GetPayload() *models.Error {
+func (o *GetChampionInfoBadRequest) GetPayload() *models.APIError {
 	return o.Payload
 }
 
 func (o *GetChampionInfoBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.Error)
+	o.Payload = new(models.APIError)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -178,20 +178,20 @@ func NewGetChampionInfoUnauthorized() *GetChampionInfoUnauthorized {
 Unauthorized
 */
 type GetChampionInfoUnauthorized struct {
-	Payload *models.Error
+	Payload *models.APIError
 }
 
 func (o *GetChampionInfoUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /platform/v3/champion-rotations][%d] getChampionInfoUnauthorized  %+v", 401, o.Payload)
 }
 
-func (o *GetChampionInfoUnauthorized) GetPayload() *models.Error {
+func (o *GetChampionInfoUnauthorized) GetPayload() *models.APIError {
 	return o.Payload
 }
 
 func (o *GetChampionInfoUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.Error)
+	o.Payload = new(models.APIError)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -211,20 +211,20 @@ func NewGetChampionInfoForbidden() *GetChampionInfoForbidden {
 Forbidden
 */
 type GetChampionInfoForbidden struct {
-	Payload *models.Error
+	Payload *models.APIError
 }
 
 func (o *GetChampionInfoForbidden) Error() string {
 	return fmt.Sprintf("[GET /platform/v3/champion-rotations][%d] getChampionInfoForbidden  %+v", 403, o.Payload)
 }
 
-func (o *GetChampionInfoForbidden) GetPayload() *models.Error {
+func (o *GetChampionInfoForbidden) GetPayload() *models.APIError {
 	return o.Payload
 }
 
 func (o *GetChampionInfoForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.Error)
+	o.Payload = new(models.APIError)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -244,20 +244,20 @@ func NewGetChampionInfoNotFound() *GetChampionInfoNotFound {
 Not found
 */
 type GetChampionInfoNotFound struct {
-	Payload *models.Error
+	Payload *models.APIError
 }
 
 func (o *GetChampionInfoNotFound) Error() string {
 	return fmt.Sprintf("[GET /platform/v3/champion-rotations][%d] getChampionInfoNotFound  %+v", 404, o.Payload)
 }
 
-func (o *GetChampionInfoNotFound) GetPayload() *models.Error {
+func (o *GetChampionInfoNotFound) GetPayload() *models.APIError {
 	return o.Payload
 }
 
 func (o *GetChampionInfoNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.Error)
+	o.Payload = new(models.APIError)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -277,20 +277,20 @@ func NewGetChampionInfoMethodNotAllowed() *GetChampionInfoMethodNotAllowed {
 Method not allowed
 */
 type GetChampionInfoMethodNotAllowed struct {
-	Payload *models.Error
+	Payload *models.APIError
 }
 
 func (o *GetChampionInfoMethodNotAllowed) Error() string {
 	return fmt.Sprintf("[GET /platform/v3/champion-rotations][%d] getChampionInfoMethodNotAllowed  %+v", 405, o.Payload)
 }
 
-func (o *GetChampionInfoMethodNotAllowed) GetPayload() *models.Error {
+func (o *GetChampionInfoMethodNotAllowed) GetPayload() *models.APIError {
 	return o.Payload
 }
 
 func (o *GetChampionInfoMethodNotAllowed) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.Error)
+	o.Payload = new(models.APIError)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -310,20 +310,20 @@ func NewGetChampionInfoUnsupportedMediaType() *GetChampionInfoUnsupportedMediaTy
 Unsopported media type
 */
 type GetChampionInfoUnsupportedMediaType struct {
-	Payload *models.Error
+	Payload *models.APIError
 }
 
 func (o *GetChampionInfoUnsupportedMediaType) Error() string {
 	return fmt.Sprintf("[GET /platform/v3/champion-rotations][%d] getChampionInfoUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
-func (o *GetChampionInfoUnsupportedMediaType) GetPayload() *models.Error {
+func (o *GetChampionInfoUnsupportedMediaType) GetPayload() *models.APIError {
 	return o.Payload
 }
 
 func (o *GetChampionInfoUnsupportedMediaType) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.Error)
+	o.Payload = new(models.APIError)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -343,20 +343,20 @@ func NewGetChampionInfoTooManyRequests() *GetChampionInfoTooManyRequests {
 Rate limit Exceeded
 */
 type GetChampionInfoTooManyRequests struct {
-	Payload *models.Error
+	Payload *models.APIError
 }
 
 func (o *GetChampionInfoTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /platform/v3/champion-rotations][%d] getChampionInfoTooManyRequests  %+v", 429, o.Payload)
 }
 
-func (o *GetChampionInfoTooManyRequests) GetPayload() *models.Error {
+func (o *GetChampionInfoTooManyRequests) GetPayload() *models.APIError {
 	return o.Payload
 }
 
 func (o *GetChampionInfoTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.Error)
+	o.Payload = new(models.APIError)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -376,20 +376,20 @@ func NewGetChampionInfoInternalServerError() *GetChampionInfoInternalServerError
 Internal server error
 */
 type GetChampionInfoInternalServerError struct {
-	Payload *models.Error
+	Payload *models.APIError
 }
 
 func (o *GetChampionInfoInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /platform/v3/champion-rotations][%d] getChampionInfoInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *GetChampionInfoInternalServerError) GetPayload() *models.Error {
+func (o *GetChampionInfoInternalServerError) GetPayload() *models.APIError {
 	return o.Payload
 }
 
 func (o *GetChampionInfoInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.Error)
+	o.Payload = new(models.APIError)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -409,20 +409,20 @@ func NewGetChampionInfoBadGateway() *GetChampionInfoBadGateway {
 Bad gateway
 */
 type GetChampionInfoBadGateway struct {
-	Payload *models.Error
+	Payload *models.APIError
 }
 
 func (o *GetChampionInfoBadGateway) Error() string {
 	return fmt.Sprintf("[GET /platform/v3/champion-rotations][%d] getChampionInfoBadGateway  %+v", 502, o.Payload)
 }
 
-func (o *GetChampionInfoBadGateway) GetPayload() *models.Error {
+func (o *GetChampionInfoBadGateway) GetPayload() *models.APIError {
 	return o.Payload
 }
 
 func (o *GetChampionInfoBadGateway) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.Error)
+	o.Payload = new(models.APIError)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -442,20 +442,20 @@ func NewGetChampionInfoServiceUnavailable() *GetChampionInfoServiceUnavailable {
 Service Unavailable
 */
 type GetChampionInfoServiceUnavailable struct {
-	Payload *models.Error
+	Payload *models.APIError
 }
 
 func (o *GetChampionInfoServiceUnavailable) Error() string {
 	return fmt.Sprintf("[GET /platform/v3/champion-rotations][%d] getChampionInfoServiceUnavailable  %+v", 503, o.Payload)
 }
 
-func (o *GetChampionInfoServiceUnavailable) GetPayload() *models.Error {
+func (o *GetChampionInfoServiceUnavailable) GetPayload() *models.APIError {
 	return o.Payload
 }
 
 func (o *GetChampionInfoServiceUnavailable) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.Error)
+	o.Payload = new(models.APIError)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -475,20 +475,20 @@ func NewGetChampionInfoGatewayTimeout() *GetChampionInfoGatewayTimeout {
 Gateway timeout
 */
 type GetChampionInfoGatewayTimeout struct {
-	Payload *models.Error
+	Payload *models.APIError
 }
 
 func (o *GetChampionInfoGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /platform/v3/champion-rotations][%d] getChampionInfoGatewayTimeout  %+v", 504, o.Payload)
 }
 
-func (o *GetChampionInfoGatewayTimeout) GetPayload() *models.Error {
+func (o *GetChampionInfoGatewayTimeout) GetPayload() *models.APIError {
 	return o.Payload
 }
 
 func (o *GetChampionInfoGatewayTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.Error)
+	o.Payload = new(models.APIError)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

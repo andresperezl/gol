@@ -5,8 +5,9 @@ import (
 	"strings"
 )
 
-const BASE_ENDPOINT = "api.riotgames.com"
+const BaseEndpoint = "api.riotgames.com"
 
+// Region represents one of the supported Riot Regions
 type Region int
 
 const (
@@ -28,11 +29,9 @@ const (
 	Asia
 )
 
-func (region Region) GetRegionalEndpoint() string {
-	return fmt.Sprintf("%s.%s", strings.ToLower(region.String()), BASE_ENDPOINT)
-}
-
+// String returns the string representation of the region
 func (region Region) String() string {
+	// The other of this should be the same as the constants above
 	ep := [...]string{
 		"BR1",
 		"EUN1",
@@ -54,6 +53,12 @@ func (region Region) String() string {
 	return ep[region]
 }
 
+// GetRegionalEndpoint returns the endpoint of this region
+func (region Region) GetRegionalEndpoint() string {
+	return fmt.Sprintf("%s.%s", strings.ToLower(region.String()), BaseEndpoint)
+}
+
+// ServiceProxy returns true is this region is part of the Service Proxies
 func (region Region) ServiceProxy() bool {
 	switch region {
 	case Americas, Europe, Asia:
@@ -63,6 +68,7 @@ func (region Region) ServiceProxy() bool {
 	}
 }
 
+// RegionalProxy returns true is this region is part of the Regional Proxies
 func (region Region) RegionalProxy() bool {
 	switch region {
 	case Americas, Europe, Asia:

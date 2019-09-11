@@ -145,20 +145,20 @@ func NewGetChampionMasteryBadRequest() *GetChampionMasteryBadRequest {
 Bad request
 */
 type GetChampionMasteryBadRequest struct {
-	Payload *models.Error
+	Payload *models.APIError
 }
 
 func (o *GetChampionMasteryBadRequest) Error() string {
 	return fmt.Sprintf("[GET /champion-mastery/v4/champion-masteries/by-summoner/{encryptedSummonerId}/by-champion/{championId}][%d] getChampionMasteryBadRequest  %+v", 400, o.Payload)
 }
 
-func (o *GetChampionMasteryBadRequest) GetPayload() *models.Error {
+func (o *GetChampionMasteryBadRequest) GetPayload() *models.APIError {
 	return o.Payload
 }
 
 func (o *GetChampionMasteryBadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.Error)
+	o.Payload = new(models.APIError)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -178,20 +178,20 @@ func NewGetChampionMasteryUnauthorized() *GetChampionMasteryUnauthorized {
 Unauthorized
 */
 type GetChampionMasteryUnauthorized struct {
-	Payload *models.Error
+	Payload *models.APIError
 }
 
 func (o *GetChampionMasteryUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /champion-mastery/v4/champion-masteries/by-summoner/{encryptedSummonerId}/by-champion/{championId}][%d] getChampionMasteryUnauthorized  %+v", 401, o.Payload)
 }
 
-func (o *GetChampionMasteryUnauthorized) GetPayload() *models.Error {
+func (o *GetChampionMasteryUnauthorized) GetPayload() *models.APIError {
 	return o.Payload
 }
 
 func (o *GetChampionMasteryUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.Error)
+	o.Payload = new(models.APIError)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -211,20 +211,20 @@ func NewGetChampionMasteryForbidden() *GetChampionMasteryForbidden {
 Forbidden
 */
 type GetChampionMasteryForbidden struct {
-	Payload *models.Error
+	Payload *models.APIError
 }
 
 func (o *GetChampionMasteryForbidden) Error() string {
 	return fmt.Sprintf("[GET /champion-mastery/v4/champion-masteries/by-summoner/{encryptedSummonerId}/by-champion/{championId}][%d] getChampionMasteryForbidden  %+v", 403, o.Payload)
 }
 
-func (o *GetChampionMasteryForbidden) GetPayload() *models.Error {
+func (o *GetChampionMasteryForbidden) GetPayload() *models.APIError {
 	return o.Payload
 }
 
 func (o *GetChampionMasteryForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.Error)
+	o.Payload = new(models.APIError)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -244,20 +244,20 @@ func NewGetChampionMasteryNotFound() *GetChampionMasteryNotFound {
 Not found
 */
 type GetChampionMasteryNotFound struct {
-	Payload *models.Error
+	Payload *models.APIError
 }
 
 func (o *GetChampionMasteryNotFound) Error() string {
 	return fmt.Sprintf("[GET /champion-mastery/v4/champion-masteries/by-summoner/{encryptedSummonerId}/by-champion/{championId}][%d] getChampionMasteryNotFound  %+v", 404, o.Payload)
 }
 
-func (o *GetChampionMasteryNotFound) GetPayload() *models.Error {
+func (o *GetChampionMasteryNotFound) GetPayload() *models.APIError {
 	return o.Payload
 }
 
 func (o *GetChampionMasteryNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.Error)
+	o.Payload = new(models.APIError)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -277,20 +277,20 @@ func NewGetChampionMasteryMethodNotAllowed() *GetChampionMasteryMethodNotAllowed
 Method not allowed
 */
 type GetChampionMasteryMethodNotAllowed struct {
-	Payload *models.Error
+	Payload *models.APIError
 }
 
 func (o *GetChampionMasteryMethodNotAllowed) Error() string {
 	return fmt.Sprintf("[GET /champion-mastery/v4/champion-masteries/by-summoner/{encryptedSummonerId}/by-champion/{championId}][%d] getChampionMasteryMethodNotAllowed  %+v", 405, o.Payload)
 }
 
-func (o *GetChampionMasteryMethodNotAllowed) GetPayload() *models.Error {
+func (o *GetChampionMasteryMethodNotAllowed) GetPayload() *models.APIError {
 	return o.Payload
 }
 
 func (o *GetChampionMasteryMethodNotAllowed) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.Error)
+	o.Payload = new(models.APIError)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -310,20 +310,20 @@ func NewGetChampionMasteryUnsupportedMediaType() *GetChampionMasteryUnsupportedM
 Unsopported media type
 */
 type GetChampionMasteryUnsupportedMediaType struct {
-	Payload *models.Error
+	Payload *models.APIError
 }
 
 func (o *GetChampionMasteryUnsupportedMediaType) Error() string {
 	return fmt.Sprintf("[GET /champion-mastery/v4/champion-masteries/by-summoner/{encryptedSummonerId}/by-champion/{championId}][%d] getChampionMasteryUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
-func (o *GetChampionMasteryUnsupportedMediaType) GetPayload() *models.Error {
+func (o *GetChampionMasteryUnsupportedMediaType) GetPayload() *models.APIError {
 	return o.Payload
 }
 
 func (o *GetChampionMasteryUnsupportedMediaType) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.Error)
+	o.Payload = new(models.APIError)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -343,20 +343,20 @@ func NewGetChampionMasteryTooManyRequests() *GetChampionMasteryTooManyRequests {
 Rate limit Exceeded
 */
 type GetChampionMasteryTooManyRequests struct {
-	Payload *models.Error
+	Payload *models.APIError
 }
 
 func (o *GetChampionMasteryTooManyRequests) Error() string {
 	return fmt.Sprintf("[GET /champion-mastery/v4/champion-masteries/by-summoner/{encryptedSummonerId}/by-champion/{championId}][%d] getChampionMasteryTooManyRequests  %+v", 429, o.Payload)
 }
 
-func (o *GetChampionMasteryTooManyRequests) GetPayload() *models.Error {
+func (o *GetChampionMasteryTooManyRequests) GetPayload() *models.APIError {
 	return o.Payload
 }
 
 func (o *GetChampionMasteryTooManyRequests) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.Error)
+	o.Payload = new(models.APIError)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -376,20 +376,20 @@ func NewGetChampionMasteryInternalServerError() *GetChampionMasteryInternalServe
 Internal server error
 */
 type GetChampionMasteryInternalServerError struct {
-	Payload *models.Error
+	Payload *models.APIError
 }
 
 func (o *GetChampionMasteryInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /champion-mastery/v4/champion-masteries/by-summoner/{encryptedSummonerId}/by-champion/{championId}][%d] getChampionMasteryInternalServerError  %+v", 500, o.Payload)
 }
 
-func (o *GetChampionMasteryInternalServerError) GetPayload() *models.Error {
+func (o *GetChampionMasteryInternalServerError) GetPayload() *models.APIError {
 	return o.Payload
 }
 
 func (o *GetChampionMasteryInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.Error)
+	o.Payload = new(models.APIError)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -409,20 +409,20 @@ func NewGetChampionMasteryBadGateway() *GetChampionMasteryBadGateway {
 Bad gateway
 */
 type GetChampionMasteryBadGateway struct {
-	Payload *models.Error
+	Payload *models.APIError
 }
 
 func (o *GetChampionMasteryBadGateway) Error() string {
 	return fmt.Sprintf("[GET /champion-mastery/v4/champion-masteries/by-summoner/{encryptedSummonerId}/by-champion/{championId}][%d] getChampionMasteryBadGateway  %+v", 502, o.Payload)
 }
 
-func (o *GetChampionMasteryBadGateway) GetPayload() *models.Error {
+func (o *GetChampionMasteryBadGateway) GetPayload() *models.APIError {
 	return o.Payload
 }
 
 func (o *GetChampionMasteryBadGateway) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.Error)
+	o.Payload = new(models.APIError)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -442,20 +442,20 @@ func NewGetChampionMasteryServiceUnavailable() *GetChampionMasteryServiceUnavail
 Service Unavailable
 */
 type GetChampionMasteryServiceUnavailable struct {
-	Payload *models.Error
+	Payload *models.APIError
 }
 
 func (o *GetChampionMasteryServiceUnavailable) Error() string {
 	return fmt.Sprintf("[GET /champion-mastery/v4/champion-masteries/by-summoner/{encryptedSummonerId}/by-champion/{championId}][%d] getChampionMasteryServiceUnavailable  %+v", 503, o.Payload)
 }
 
-func (o *GetChampionMasteryServiceUnavailable) GetPayload() *models.Error {
+func (o *GetChampionMasteryServiceUnavailable) GetPayload() *models.APIError {
 	return o.Payload
 }
 
 func (o *GetChampionMasteryServiceUnavailable) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.Error)
+	o.Payload = new(models.APIError)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -475,20 +475,20 @@ func NewGetChampionMasteryGatewayTimeout() *GetChampionMasteryGatewayTimeout {
 Gateway timeout
 */
 type GetChampionMasteryGatewayTimeout struct {
-	Payload *models.Error
+	Payload *models.APIError
 }
 
 func (o *GetChampionMasteryGatewayTimeout) Error() string {
 	return fmt.Sprintf("[GET /champion-mastery/v4/champion-masteries/by-summoner/{encryptedSummonerId}/by-champion/{championId}][%d] getChampionMasteryGatewayTimeout  %+v", 504, o.Payload)
 }
 
-func (o *GetChampionMasteryGatewayTimeout) GetPayload() *models.Error {
+func (o *GetChampionMasteryGatewayTimeout) GetPayload() *models.APIError {
 	return o.Payload
 }
 
 func (o *GetChampionMasteryGatewayTimeout) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.Error)
+	o.Payload = new(models.APIError)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
