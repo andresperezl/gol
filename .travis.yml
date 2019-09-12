@@ -13,7 +13,7 @@ before_install:
   - make gen-spec
   - make build
   - make serve-bg
-  - cd $GOPATH/github.com/andresperezl/gol
+  - cd $GOPATH/src/github.com/andresperezl/gol
   - make gen-spec
   - make build
 script:
