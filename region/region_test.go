@@ -6,8 +6,8 @@ import (
 	"testing"
 )
 
-func TestRegion(t *testing.T) {
-	ep := [...]string{
+var (
+	ep = [...]string{
 		"BR1",
 		"EUN1",
 		"EUW1",
@@ -25,7 +25,7 @@ func TestRegion(t *testing.T) {
 		"Europe",
 		"Asia",
 	}
-	rs := [...]Region{
+	rs = [...]Region{
 		BR1,
 		EUN1,
 		EUW1,
@@ -43,6 +43,9 @@ func TestRegion(t *testing.T) {
 		Europe,
 		Asia,
 	}
+)
+
+func TestRegionStrings(t *testing.T) {
 	for _, r := range rs {
 		if got := r.String(); got != ep[r] {
 			t.Errorf("Expected region string to be %s, got %s", ep[r], got)
@@ -54,7 +57,9 @@ func TestRegion(t *testing.T) {
 			t.Errorf("Expected region endpoint to be %s, got %s", fmt.Sprintf("%s.%s", exp, BaseEndpoint), got)
 		}
 	}
+}
 
+func TestRegionType(t *testing.T) {
 	for _, r := range rs {
 		got := r.ServiceProxy()
 		switch r {

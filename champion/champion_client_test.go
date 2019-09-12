@@ -7,7 +7,7 @@ import (
 	"github.com/andresperezl/gol/utils"
 )
 
-const CIRawData = `{
+const ciRawData = `{
     "freeChampionIds": [
         8,
         15,
@@ -41,7 +41,7 @@ const CIRawData = `{
 }`
 
 func TestChampionClient(t *testing.T) {
-	ts, lc := utils.GetTestServerAndClient(true, CIRawData)
+	ts, lc := utils.GetTestServerAndClient(true, ciRawData)
 	defer ts.Close()
 
 	c := NewClient(lc.Champion)
