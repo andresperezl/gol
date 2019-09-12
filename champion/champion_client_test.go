@@ -1,19 +1,49 @@
 package champion
 
 import (
-	"os"
 	"testing"
 
 	"github.com/andresperezl/gol/auth"
 	"github.com/andresperezl/gol/utils"
 )
 
+const CIRawData = `{
+    "freeChampionIds": [
+        8,
+        15,
+        20,
+        38,
+        48,
+        57,
+        78,
+        82,
+        91,
+        96,
+        126,
+        143,
+        161,
+        245,
+        421
+    ],
+    "freeChampionIdsForNewPlayers": [
+        18,
+        81,
+        92,
+        141,
+        37,
+        238,
+        19,
+        45,
+        25,
+        64
+    ],
+    "maxNewPlayerLevel": 10
+}`
+
 func TestChampionClient(t *testing.T) {
-	host := os.Getenv("RIOT_API_TEST_HOST")
-	if len(host) == 0 {
-		host = "127.0.0.1:8443"
-	}
-	lc := utils.GetTestAPIClient(host)
+	ts, lc := utils.GetTestServerAndClient(true, CIRawData)
+	defer ts.Close()
+
 	c := NewClient(lc.Champion)
 	auth.SetAuthInfo("RGAPI")
 	if _, err := c.GetChampionInfo(); err != nil {
