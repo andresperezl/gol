@@ -1,0 +1,23 @@
+language: go
+
+go:
+  - "1.13"
+  - "1.12"
+  - "1.11"
+
+before_install:
+  - curl -o $GOPATH/bin/swagger https://github.com/go-swagger/go-swagger/releases/download/v0.20.1/swagger_linux_amd64
+  - chmod +x $GOPATH/bin/swagger
+  - go get github.com/andresperezl/gol-test-server
+  - cd $GOTPATH/src/github.com/andresperezl/gol-test-server
+  - make gen-spec
+  - make build
+  - make serve-bg
+  - cd $GOTPATH/src/github.com/andresperezl/gol
+  - make gen-spec
+  - make build
+script:
+  - make test-with-coverage
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
