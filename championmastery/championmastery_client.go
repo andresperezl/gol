@@ -1,4 +1,4 @@
-package champion_mastery
+package championmastery
 
 import (
 	"github.com/andresperezl/gol/auth"
@@ -23,17 +23,17 @@ func (c *Client) GetChampionMasteryScore(encryptedSummonerID string) (int32, *er
 	res, err := c.cmClient.GetChampionMasteryScore(params, auth.GetAuthInfo())
 	if err != nil {
 		er := err.(errors.ErrorResponse)
-		return -1, &errors.APIError{*er.GetPayload()}
+		return -1, &errors.APIError{APIError: *er.GetPayload()}
 	}
 	return res.Payload, nil
 }
 
-func (c *Client) GetAllChampionMasteries(encryptedSummonerID string) (models.ListChampionMastery, *errors.APIError) {
+func (c *Client) GetAllChampionMasteries(encryptedSummonerID string) ([]*models.ChampionMastery, *errors.APIError) {
 	params := champion_mastery.NewGetAllChampionMasteriesParams().WithEncryptedSummonerID(encryptedSummonerID)
 	res, err := c.cmClient.GetAllChampionMasteries(params, auth.GetAuthInfo())
 	if err != nil {
 		er := err.(errors.ErrorResponse)
-		return nil, &errors.APIError{*er.GetPayload()}
+		return nil, &errors.APIError{APIError: *er.GetPayload()}
 	}
 	return res.Payload, nil
 }
@@ -43,7 +43,7 @@ func (c *Client) GetChampionMastery(encryptedSummonerID string, championID int64
 	res, err := c.cmClient.GetChampionMastery(params, auth.GetAuthInfo())
 	if err != nil {
 		er := err.(errors.ErrorResponse)
-		return nil, &errors.APIError{*er.GetPayload()}
+		return nil, &errors.APIError{APIError: *er.GetPayload()}
 	}
 	return res.Payload, nil
 }

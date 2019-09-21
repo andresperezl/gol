@@ -1,4 +1,4 @@
-package champion_mastery
+package championmastery
 
 import (
 	"testing"

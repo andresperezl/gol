@@ -19,10 +19,10 @@ func NewClient(cmClient *champion.Client) *Client {
 }
 
 func (c *Client) GetChampionInfo() (*models.ChampionInfo, *errors.APIError) {
-	res, err := c.cClient.GetChampionInfo(nil, auth.GetAuthInfo())
+	res, err := c.cClient.GetChampionInfo(champion.NewGetChampionInfoParams(), auth.GetAuthInfo())
 	if err != nil {
 		er := err.(errors.ErrorResponse)
-		return nil, &errors.APIError{*er.GetPayload()}
+		return nil, &errors.APIError{APIError: *er.GetPayload()}
 	}
 	return res.Payload, nil
 }

@@ -8,7 +8,6 @@ package models
 import (
 	strfmt "github.com/go-openapi/strfmt"
 
-	"github.com/go-openapi/errors"
 	"github.com/go-openapi/swag"
 )
 
@@ -16,221 +15,45 @@ import (
 // swagger:model ChampionMastery
 type ChampionMastery struct {
 
-	// champion Id
-	ChampionID ChampionID `json:"championId,omitempty"`
+	// Champion ID
+	// Read Only: true
+	ChampionID int64 `json:"championId,omitempty"`
 
-	// champion level
-	ChampionLevel ChampionLevel `json:"championLevel,omitempty"`
+	// Champion level for specified player and champion combination
+	// Read Only: true
+	ChampionLevel int32 `json:"championLevel,omitempty"`
 
-	// champion points
-	ChampionPoints ChampionPoints `json:"championPoints,omitempty"`
+	// Total number of champion points for this player and champion combination - they are used to determine championLevel
+	// Read Only: true
+	ChampionPoints int32 `json:"championPoints,omitempty"`
 
-	// champion points since last level
-	ChampionPointsSinceLastLevel ChampionPointsSinceLastLevel `json:"championPointsSinceLastLevel,omitempty"`
+	// Number of points earned since current level has been achieved
+	// Read Only: true
+	ChampionPointsSinceLastLevel int64 `json:"championPointsSinceLastLevel,omitempty"`
 
-	// champion points until next level
-	ChampionPointsUntilNextLevel ChampionPointsUntilNextLevel `json:"championPointsUntilNextLevel,omitempty"`
+	// Number of points needed to achieve next level. Zero if player reached maximum champion level for this champion
+	// Read Only: true
+	ChampionPointsUntilNextLevel int64 `json:"championPointsUntilNextLevel,omitempty"`
 
-	// chest granted
-	ChestGranted ChestGranted `json:"chestGranted,omitempty"`
+	// Is chest granted for this champion or not in current season
+	// Read Only: true
+	ChestGranted *bool `json:"chestGranted,omitempty"`
 
-	// last play time
-	LastPlayTime LastPlayTime `json:"lastPlayTime,omitempty"`
+	// Last time this champion was played by this player - in Unix milliseconds time format
+	// Read Only: true
+	LastPlayTime int64 `json:"lastPlayTime,omitempty"`
 
-	// summoner Id
-	SummonerID EncryptedSummonerID `json:"summonerId,omitempty"`
+	// Summoner ID (Encrypted)
+	// Read Only: true
+	SummonerID string `json:"summonerId,omitempty"`
 
-	// tokens earned
-	TokensEarned TokensEarned `json:"tokensEarned,omitempty"`
+	// The token earned for this champion to levelup
+	// Read Only: true
+	TokensEarned int32 `json:"tokensEarned,omitempty"`
 }
 
 // Validate validates this champion mastery
 func (m *ChampionMastery) Validate(formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.validateChampionID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateChampionLevel(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateChampionPoints(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateChampionPointsSinceLastLevel(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateChampionPointsUntilNextLevel(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateChestGranted(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateLastPlayTime(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateSummonerID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateTokensEarned(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
-	return nil
-}
-
-func (m *ChampionMastery) validateChampionID(formats strfmt.Registry) error {
-
-	if swag.IsZero(m.ChampionID) { // not required
-		return nil
-	}
-
-	if err := m.ChampionID.Validate(formats); err != nil {
-		if ve, ok := err.(*errors.Validation); ok {
-			return ve.ValidateName("championId")
-		}
-		return err
-	}
-
-	return nil
-}
-
-func (m *ChampionMastery) validateChampionLevel(formats strfmt.Registry) error {
-
-	if swag.IsZero(m.ChampionLevel) { // not required
-		return nil
-	}
-
-	if err := m.ChampionLevel.Validate(formats); err != nil {
-		if ve, ok := err.(*errors.Validation); ok {
-			return ve.ValidateName("championLevel")
-		}
-		return err
-	}
-
-	return nil
-}
-
-func (m *ChampionMastery) validateChampionPoints(formats strfmt.Registry) error {
-
-	if swag.IsZero(m.ChampionPoints) { // not required
-		return nil
-	}
-
-	if err := m.ChampionPoints.Validate(formats); err != nil {
-		if ve, ok := err.(*errors.Validation); ok {
-			return ve.ValidateName("championPoints")
-		}
-		return err
-	}
-
-	return nil
-}
-
-func (m *ChampionMastery) validateChampionPointsSinceLastLevel(formats strfmt.Registry) error {
-
-	if swag.IsZero(m.ChampionPointsSinceLastLevel) { // not required
-		return nil
-	}
-
-	if err := m.ChampionPointsSinceLastLevel.Validate(formats); err != nil {
-		if ve, ok := err.(*errors.Validation); ok {
-			return ve.ValidateName("championPointsSinceLastLevel")
-		}
-		return err
-	}
-
-	return nil
-}
-
-func (m *ChampionMastery) validateChampionPointsUntilNextLevel(formats strfmt.Registry) error {
-
-	if swag.IsZero(m.ChampionPointsUntilNextLevel) { // not required
-		return nil
-	}
-
-	if err := m.ChampionPointsUntilNextLevel.Validate(formats); err != nil {
-		if ve, ok := err.(*errors.Validation); ok {
-			return ve.ValidateName("championPointsUntilNextLevel")
-		}
-		return err
-	}
-
-	return nil
-}
-
-func (m *ChampionMastery) validateChestGranted(formats strfmt.Registry) error {
-
-	if swag.IsZero(m.ChestGranted) { // not required
-		return nil
-	}
-
-	if err := m.ChestGranted.Validate(formats); err != nil {
-		if ve, ok := err.(*errors.Validation); ok {
-			return ve.ValidateName("chestGranted")
-		}
-		return err
-	}
-
-	return nil
-}
-
-func (m *ChampionMastery) validateLastPlayTime(formats strfmt.Registry) error {
-
-	if swag.IsZero(m.LastPlayTime) { // not required
-		return nil
-	}
-
-	if err := m.LastPlayTime.Validate(formats); err != nil {
-		if ve, ok := err.(*errors.Validation); ok {
-			return ve.ValidateName("lastPlayTime")
-		}
-		return err
-	}
-
-	return nil
-}
-
-func (m *ChampionMastery) validateSummonerID(formats strfmt.Registry) error {
-
-	if swag.IsZero(m.SummonerID) { // not required
-		return nil
-	}
-
-	if err := m.SummonerID.Validate(formats); err != nil {
-		if ve, ok := err.(*errors.Validation); ok {
-			return ve.ValidateName("summonerId")
-		}
-		return err
-	}
-
-	return nil
-}
-
-func (m *ChampionMastery) validateTokensEarned(formats strfmt.Registry) error {
-
-	if swag.IsZero(m.TokensEarned) { // not required
-		return nil
-	}
-
-	if err := m.TokensEarned.Validate(formats); err != nil {
-		if ve, ok := err.(*errors.Validation); ok {
-			return ve.ValidateName("tokensEarned")
-		}
-		return err
-	}
-
 	return nil
 }
 

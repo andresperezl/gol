@@ -3,7 +3,7 @@ package gol
 import (
 	"github.com/andresperezl/gol/auth"
 	"github.com/andresperezl/gol/champion"
-	"github.com/andresperezl/gol/champion_mastery"
+	"github.com/andresperezl/gol/championmastery"
 	"github.com/andresperezl/gol/region"
 	"github.com/andresperezl/gol/utils"
 )
@@ -11,7 +11,7 @@ import (
 // GoLClient represents the League of Legends API Client
 type GoLClient struct {
 	Champion        *champion.Client
-	ChampionMastery *champion_mastery.Client
+	ChampionMastery *championmastery.Client
 	CurrentRegion   region.Region
 	CurrentAPIKey   string
 }
@@ -30,7 +30,7 @@ func (c *GoLClient) SetRegion(region region.Region) {
 	lolClient := utils.GetInternalAPIClient(region)
 	c.CurrentRegion = region
 	c.Champion = champion.NewClient(lolClient.Champion)
-	c.ChampionMastery = champion_mastery.NewClient(lolClient.ChampionMastery)
+	c.ChampionMastery = championmastery.NewClient(lolClient.ChampionMastery)
 }
 
 // SetAPIKey changes the key used for authentication with apiKey

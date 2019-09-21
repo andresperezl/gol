@@ -18,10 +18,16 @@ func GetTestServerAndClient(authenticate bool, response string) (*httptest.Serve
 			w.Header().Add("Content-Type", "application/json")
 			if authenticate {
 				if riotToken := r.Header.Get(auth.RiotAPIHeader); len(riotToken) > 0 && strings.HasPrefix(riotToken, "RGAPI") {
-					w.Write([]byte(response))
+					_, err := w.Write([]byte(response))
+					if err != nil {
+						panic(err)
+					}
 				} else {
 					w.WriteHeader(http.StatusUnauthorized)
-					w.Write([]byte(`{ "status": {"message": "Unauthorized", "status_code": 401 } }`))
+					_, err := w.Write([]byte(`{ "status": {"message": "Unauthorized", "status_code": 401 } }`))
+					if err != nil {
+						panic(err)
+					}
 				}
 			}
 		}),

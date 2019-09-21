@@ -112,14 +112,14 @@ func NewGetAllChampionMasteriesOK() *GetAllChampionMasteriesOK {
 OK
 */
 type GetAllChampionMasteriesOK struct {
-	Payload models.ListChampionMastery
+	Payload []*models.ChampionMastery
 }
 
 func (o *GetAllChampionMasteriesOK) Error() string {
 	return fmt.Sprintf("[GET /champion-mastery/v4/champion-masteries/by-summoner/{encryptedSummonerId}][%d] getAllChampionMasteriesOK  %+v", 200, o.Payload)
 }
 
-func (o *GetAllChampionMasteriesOK) GetPayload() models.ListChampionMastery {
+func (o *GetAllChampionMasteriesOK) GetPayload() []*models.ChampionMastery {
 	return o.Payload
 }
 

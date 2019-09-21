@@ -26,7 +26,10 @@ paths:
         200:
           description: 'OK'
           schema:
-            '$ref': '#/definitions/ListChampionMastery'
+            type: array
+            readOnly: true
+            items:
+              '$ref': '#/definitions/ChampionMastery'
         400:
           '$ref': '#/responses/BadRequest'
         401:
@@ -160,6 +163,56 @@ paths:
           '$ref': '#/responses/ServiceUnavailable'
         504:
           '$ref': '#/responses/GatewayTimeout'
+  '/lol/league-exp/v4/entries/{queue}/{tier}/{division}':
+    get:
+      tags:
+      - league
+      - experimental
+      summary: 'Get all the league entries.'
+      description: >-
+        At the request of a GitHub issue, we've added an experimental
+        league-exp-v4 endpoint. This new endpoint is a duplicate of the endpoint
+        in league-v4, but it also supports the apex tiers (Challenger,
+        Grandmaster, and Master). In November we'll evaluate whether
+        this endpoint delivers enough value to merit its continual support.
+      externalDocs:
+        url: 'https://developer.riotgames.com/apis#league-exp-v4/GET_getLeagueEntries'
+      operationId: getLeagueEntriesExp
+      parameters:
+      - '$ref': '#/parameters/queue'
+      - '$ref': '#/parameters/tierExp'
+      - '$ref': '#/parameters/division'
+      - '$ref': '#/parameters/page'
+      responses:
+        200:
+          description: 'OK'
+          schema:
+            type: array
+            readOnly: true
+            items:
+              '$ref': '#/definitions/LeagueEntry'
+        400:
+          '$ref': '#/responses/BadRequest'
+        401:
+          '$ref': '#/responses/Unauthorized'
+        403:
+          '$ref': '#/responses/Forbidden'
+        404:
+          '$ref': '#/responses/NotFound'
+        405:
+          '$ref': '#/responses/MethodNotAllowed'
+        415:
+          '$ref': '#/responses/UnsopportedMediaType'
+        429:
+          '$ref': '#/responses/RateLimitExceeded'
+        500:
+          '$ref': '#/responses/IntenalServerError'
+        502:
+          '$ref': '#/responses/BadGateway'
+        503:
+          '$ref': '#/responses/ServiceUnavailable'
+        504:
+          '$ref': '#/responses/GatewayTimeout'
 definitions:
   APIError:
     type: object
@@ -178,77 +231,54 @@ definitions:
         type: integer
         readOnly: true
         format: int32
-  ListChampionMastery:
-    type: array
-    readOnly: true
-    items:
-      '$ref': '#/definitions/ChampionMastery'
   ChampionMastery:
     type: object
     readOnly: true
     description: ' Contains single Champion Mastery information for player and champion combination'
     properties:
       chestGranted:
-        '$ref': '#/definitions/ChestGranted'
+        type: boolean
+        readOnly: true
+        description: 'Is chest granted for this champion or not in current season'
       championLevel:
-        '$ref': '#/definitions/ChampionLevel'
+        type: integer
+        readOnly: true
+        format: int32
+        description: 'Champion level for specified player and champion combination'
       championPoints:
-        '$ref': '#/definitions/ChampionPoints'
+        type: integer
+        readOnly: true
+        format: int32
+        description: 'Total number of champion points for this player and champion combination - they are used to determine championLevel'
       championId:
-        '$ref': '#/definitions/ChampionId'
+        type: integer
+        readOnly: true
+        format: int64
+        description: 'Champion ID'
       championPointsUntilNextLevel:
-        '$ref': '#/definitions/ChampionPointsUntilNextLevel'
+        type: integer
+        readOnly: true
+        format: int64
+        description: 'Number of points needed to achieve next level. Zero if player reached maximum champion level for this champion'
       lastPlayTime:
-        '$ref': '#/definitions/LastPlayTime'
+        type: integer
+        readOnly: true
+        format: int64
+        description: 'Last time this champion was played by this player - in Unix milliseconds time format'
       tokensEarned:
-        '$ref': '#/definitions/TokensEarned'
+        type: integer
+        readOnly: true
+        format: int32
+        description: 'The token earned for this champion to levelup'
       championPointsSinceLastLevel:
-        '$ref': '#/definitions/ChampionPointsSinceLastLevel'
+        type: integer
+        readOnly: true
+        format: int64
+        description: 'Number of points earned since current level has been achieved'
       summonerId:
-        '$ref': '#/definitions/EncryptedSummonerId'
-  ChestGranted:
-    type: boolean
-    readOnly: true
-    description: 'Is chest granted for this champion or not in current season'
-  ChampionLevel:
-    type: integer
-    readOnly: true
-    format: int32
-    description: 'Champion level for specified player and champion combination'
-  ChampionPoints:
-    type: integer
-    readOnly: true
-    format: int32
-    description: 'Total number of champion points for this player and champion combination - they are used to determine championLevel'
-  ChampionId:
-    type: integer
-    readOnly: true
-    format: int64
-    description: 'Champion ID'
-  ChampionPointsUntilNextLevel:
-    type: integer
-    readOnly: true
-    format: int64
-    description: 'Number of points needed to achieve next level. Zero if player reached maximum champion level for this champion'
-  LastPlayTime:
-    type: integer
-    readOnly: true
-    format: int64
-    description: 'Last time this champion was played by this player - in Unix milliseconds time format'
-  TokensEarned:
-    type: integer
-    readOnly: true
-    format: int32
-    description: 'The token earned for this champion to levelup'
-  ChampionPointsSinceLastLevel:
-    type: integer
-    readOnly: true
-    format: int64
-    description: 'Number of points earned since current level has been achieved'
-  EncryptedSummonerId:
-    type: string
-    readOnly: true
-    description: 'Summoner ID (Encrypted)'
+        type: string
+        readOnly: true
+        description: 'Summoner ID (Encrypted)'
   ChampionInfo:
     type: object
     properties:
@@ -265,6 +295,76 @@ definitions:
       maxNewPlayerLevel:
         type: integer
         format: int32
+  LeagueEntry:
+    type: object
+    readOnly: true
+    properties:
+      queueType:
+        type: string
+        readOnly: true
+      summonerName:
+        type: string
+        readOnly: true
+      hotStreak:
+        type: boolean
+        readOnly: true
+      miniSeries:
+        '$ref': '#/definitions/MiniSeries'
+      wins:
+        type: integer
+        format: int32
+        readOnly: true
+        description: 'Winning team on Summoners Rift. First placement in Teamfight Tactics.'
+      veteran:
+        type: boolean
+        readOnly: true
+      losses:
+        type: integer
+        format: int32
+        description: 'Losing team on Summoners Rift. Second through eighth placement in Teamfight Tactics.'
+        readOnly: true
+      rank:
+        type: string
+        readOnly: true
+      leagueId:
+        type: string
+        readOnly: true
+      inactive:
+        type: boolean
+        readOnly: true
+      freshBlood:
+        type: boolean
+        readOnly: true
+      tier:
+        type: string
+        readOnly: true
+      summonerId:
+        type: string
+        readOnly: true
+        description: 'Summoner ID (Encrypted)'
+      leaguePoints:
+        type: integer
+        format: int32
+        readOnly: true
+  MiniSeries:
+    type: object
+    readOnly: true
+    properties:
+      progress:
+        type: string
+        readOnly: true
+      losses:
+        type: integer
+        format: int32
+        readOnly: true
+      target:
+        type: integer
+        format: int32
+        readOnly: true
+      wins:
+        type: integer
+        format: int32
+        readOnly: true
 parameters:
   encryptedSummonerId:
     name: encryptedSummonerId
@@ -279,6 +379,48 @@ parameters:
     format: int64
     description: 'Champion ID'
     required: true
+  queue:
+    name: queue
+    in: path
+    type: string
+    description: 'Note that the queue value must be a valid ranked queue.'
+    required: true
+    enum:
+    - RANKED_SOLO_5x5
+    - RANKED_TFT
+    - RANKED_FLEX_SR
+    - RANKED_FLEX_TT
+  tierExp:
+    name: tier
+    in: path
+    type: string
+    required: true
+    enum:
+    - CHALLENGER
+    - GRANDMASTER
+    - MASTER
+    - DIAMOND
+    - PLATINUM
+    - GOLD
+    - SILVER
+    - BRONZE
+    - IRON
+  division:
+    name: division
+    in: path
+    type: string
+    required: true
+    enum:
+    - I
+    - II
+    - III
+    - IV
+  page:
+    name: page
+    in: query
+    type: integer
+    format: int32
+    required: false
 responses:
   BadRequest:
     description: 'Bad request'
@@ -338,10 +480,14 @@ security:
 - APIKeyQueryParam: []
 tags:
 - name: championMastery
+  x-go-name:
   externalDocs:
     url: 'https://developer.riotgames.com/apis#champion-mastery-v4'
 - name: champion
   externalDocs:
     url: 'https://developer.riotgames.com/apis#champion-v3'
+- name: league
+  externalDocs:
+    url: 'https://developer.riotgames.com/apis#league-v4'
 externalDocs:
   url: 'https://developer.riotgames.com/apis'

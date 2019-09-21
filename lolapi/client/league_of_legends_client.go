@@ -13,6 +13,7 @@ import (
 
 	"github.com/andresperezl/gol/lolapi/client/champion"
 	"github.com/andresperezl/gol/lolapi/client/champion_mastery"
+	"github.com/andresperezl/gol/lolapi/client/league"
 )
 
 // Default league of legends HTTP client.
@@ -62,6 +63,8 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *LeagueOfLe
 
 	cli.ChampionMastery = champion_mastery.New(transport, formats)
 
+	cli.League = league.New(transport, formats)
+
 	return cli
 }
 
@@ -110,6 +113,8 @@ type LeagueOfLegends struct {
 
 	ChampionMastery *champion_mastery.Client
 
+	League *league.Client
+
 	Transport runtime.ClientTransport
 }
 
@@ -120,5 +125,7 @@ func (c *LeagueOfLegends) SetTransport(transport runtime.ClientTransport) {
 	c.Champion.SetTransport(transport)
 
 	c.ChampionMastery.SetTransport(transport)
+
+	c.League.SetTransport(transport)
 
 }
