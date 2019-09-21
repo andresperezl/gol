@@ -24,5 +24,6 @@ func (c *Client) GetChampionInfo() (*models.ChampionInfo, *errors.APIError) {
 		er := err.(errors.ErrorResponse)
 		return nil, &errors.APIError{APIError: *er.GetPayload()}
 	}
+
 	return res.Payload, nil
 }
