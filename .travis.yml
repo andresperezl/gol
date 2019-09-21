@@ -1,9 +1,9 @@
 language: go
 
 go:
-  - "1.13"
-  - "1.12"
-  - "1.11"
+- "1.13"
+- "1.12"
+- "1.11"
 
 env:
   global:
@@ -11,15 +11,15 @@ env:
   - GO_SWAGGER_VERSION=0.20.1
 
 before_install:
-  - curl -sfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh| sh -s -- -b $(go env GOPATH)/bin v${GOLANGCI_LINT_VERSION}
-  - curl -o $GOPATH/bin/swagger -L https://github.com/go-swagger/go-swagger/releases/download/v${GO_SWAGGER_VERSION}/swagger_linux_amd64
-  - chmod +x $GOPATH/bin/swagger
-  - make gen-spec
-  - make lint
-  - make build
+- curl -sfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh| sh -s -- -b $(go env GOPATH)/bin v${GOLANGCI_LINT_VERSION}
+- curl -o $GOPATH/bin/swagger -L https://github.com/go-swagger/go-swagger/releases/download/v${GO_SWAGGER_VERSION}/swagger_linux_amd64
+- chmod +x $GOPATH/bin/swagger
+- make gen-spec
+- make lint
+- make build
 
 script:
-  - make test-with-coverage
+- make test-with-coverage
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+ - bash <(curl -s https://codecov.io/bash)
