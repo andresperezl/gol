@@ -116,7 +116,7 @@ type GetLeagueEntriesExpOK struct {
 }
 
 func (o *GetLeagueEntriesExpOK) Error() string {
-	return fmt.Sprintf("[GET /lol/league-exp/v4/entries/{queue}/{tier}/{division}][%d] getLeagueEntriesExpOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /league-exp/v4/entries/{queue}/{tier}/{division}][%d] getLeagueEntriesExpOK  %+v", 200, o.Payload)
 }
 
 func (o *GetLeagueEntriesExpOK) GetPayload() []*models.LeagueEntry {
@@ -147,7 +147,7 @@ type GetLeagueEntriesExpBadRequest struct {
 }
 
 func (o *GetLeagueEntriesExpBadRequest) Error() string {
-	return fmt.Sprintf("[GET /lol/league-exp/v4/entries/{queue}/{tier}/{division}][%d] getLeagueEntriesExpBadRequest  %+v", 400, o.Payload)
+	return fmt.Sprintf("[GET /league-exp/v4/entries/{queue}/{tier}/{division}][%d] getLeagueEntriesExpBadRequest  %+v", 400, o.Payload)
 }
 
 func (o *GetLeagueEntriesExpBadRequest) GetPayload() *models.APIError {
@@ -180,7 +180,7 @@ type GetLeagueEntriesExpUnauthorized struct {
 }
 
 func (o *GetLeagueEntriesExpUnauthorized) Error() string {
-	return fmt.Sprintf("[GET /lol/league-exp/v4/entries/{queue}/{tier}/{division}][%d] getLeagueEntriesExpUnauthorized  %+v", 401, o.Payload)
+	return fmt.Sprintf("[GET /league-exp/v4/entries/{queue}/{tier}/{division}][%d] getLeagueEntriesExpUnauthorized  %+v", 401, o.Payload)
 }
 
 func (o *GetLeagueEntriesExpUnauthorized) GetPayload() *models.APIError {
@@ -213,7 +213,7 @@ type GetLeagueEntriesExpForbidden struct {
 }
 
 func (o *GetLeagueEntriesExpForbidden) Error() string {
-	return fmt.Sprintf("[GET /lol/league-exp/v4/entries/{queue}/{tier}/{division}][%d] getLeagueEntriesExpForbidden  %+v", 403, o.Payload)
+	return fmt.Sprintf("[GET /league-exp/v4/entries/{queue}/{tier}/{division}][%d] getLeagueEntriesExpForbidden  %+v", 403, o.Payload)
 }
 
 func (o *GetLeagueEntriesExpForbidden) GetPayload() *models.APIError {
@@ -246,7 +246,7 @@ type GetLeagueEntriesExpNotFound struct {
 }
 
 func (o *GetLeagueEntriesExpNotFound) Error() string {
-	return fmt.Sprintf("[GET /lol/league-exp/v4/entries/{queue}/{tier}/{division}][%d] getLeagueEntriesExpNotFound  %+v", 404, o.Payload)
+	return fmt.Sprintf("[GET /league-exp/v4/entries/{queue}/{tier}/{division}][%d] getLeagueEntriesExpNotFound  %+v", 404, o.Payload)
 }
 
 func (o *GetLeagueEntriesExpNotFound) GetPayload() *models.APIError {
@@ -279,7 +279,7 @@ type GetLeagueEntriesExpMethodNotAllowed struct {
 }
 
 func (o *GetLeagueEntriesExpMethodNotAllowed) Error() string {
-	return fmt.Sprintf("[GET /lol/league-exp/v4/entries/{queue}/{tier}/{division}][%d] getLeagueEntriesExpMethodNotAllowed  %+v", 405, o.Payload)
+	return fmt.Sprintf("[GET /league-exp/v4/entries/{queue}/{tier}/{division}][%d] getLeagueEntriesExpMethodNotAllowed  %+v", 405, o.Payload)
 }
 
 func (o *GetLeagueEntriesExpMethodNotAllowed) GetPayload() *models.APIError {
@@ -312,7 +312,7 @@ type GetLeagueEntriesExpUnsupportedMediaType struct {
 }
 
 func (o *GetLeagueEntriesExpUnsupportedMediaType) Error() string {
-	return fmt.Sprintf("[GET /lol/league-exp/v4/entries/{queue}/{tier}/{division}][%d] getLeagueEntriesExpUnsupportedMediaType  %+v", 415, o.Payload)
+	return fmt.Sprintf("[GET /league-exp/v4/entries/{queue}/{tier}/{division}][%d] getLeagueEntriesExpUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
 func (o *GetLeagueEntriesExpUnsupportedMediaType) GetPayload() *models.APIError {
@@ -345,7 +345,7 @@ type GetLeagueEntriesExpTooManyRequests struct {
 }
 
 func (o *GetLeagueEntriesExpTooManyRequests) Error() string {
-	return fmt.Sprintf("[GET /lol/league-exp/v4/entries/{queue}/{tier}/{division}][%d] getLeagueEntriesExpTooManyRequests  %+v", 429, o.Payload)
+	return fmt.Sprintf("[GET /league-exp/v4/entries/{queue}/{tier}/{division}][%d] getLeagueEntriesExpTooManyRequests  %+v", 429, o.Payload)
 }
 
 func (o *GetLeagueEntriesExpTooManyRequests) GetPayload() *models.APIError {
@@ -378,7 +378,7 @@ type GetLeagueEntriesExpInternalServerError struct {
 }
 
 func (o *GetLeagueEntriesExpInternalServerError) Error() string {
-	return fmt.Sprintf("[GET /lol/league-exp/v4/entries/{queue}/{tier}/{division}][%d] getLeagueEntriesExpInternalServerError  %+v", 500, o.Payload)
+	return fmt.Sprintf("[GET /league-exp/v4/entries/{queue}/{tier}/{division}][%d] getLeagueEntriesExpInternalServerError  %+v", 500, o.Payload)
 }
 
 func (o *GetLeagueEntriesExpInternalServerError) GetPayload() *models.APIError {
@@ -411,7 +411,7 @@ type GetLeagueEntriesExpBadGateway struct {
 }
 
 func (o *GetLeagueEntriesExpBadGateway) Error() string {
-	return fmt.Sprintf("[GET /lol/league-exp/v4/entries/{queue}/{tier}/{division}][%d] getLeagueEntriesExpBadGateway  %+v", 502, o.Payload)
+	return fmt.Sprintf("[GET /league-exp/v4/entries/{queue}/{tier}/{division}][%d] getLeagueEntriesExpBadGateway  %+v", 502, o.Payload)
 }
 
 func (o *GetLeagueEntriesExpBadGateway) GetPayload() *models.APIError {
@@ -444,7 +444,7 @@ type GetLeagueEntriesExpServiceUnavailable struct {
 }
 
 func (o *GetLeagueEntriesExpServiceUnavailable) Error() string {
-	return fmt.Sprintf("[GET /lol/league-exp/v4/entries/{queue}/{tier}/{division}][%d] getLeagueEntriesExpServiceUnavailable  %+v", 503, o.Payload)
+	return fmt.Sprintf("[GET /league-exp/v4/entries/{queue}/{tier}/{division}][%d] getLeagueEntriesExpServiceUnavailable  %+v", 503, o.Payload)
 }
 
 func (o *GetLeagueEntriesExpServiceUnavailable) GetPayload() *models.APIError {
@@ -477,7 +477,7 @@ type GetLeagueEntriesExpGatewayTimeout struct {
 }
 
 func (o *GetLeagueEntriesExpGatewayTimeout) Error() string {
-	return fmt.Sprintf("[GET /lol/league-exp/v4/entries/{queue}/{tier}/{division}][%d] getLeagueEntriesExpGatewayTimeout  %+v", 504, o.Payload)
+	return fmt.Sprintf("[GET /league-exp/v4/entries/{queue}/{tier}/{division}][%d] getLeagueEntriesExpGatewayTimeout  %+v", 504, o.Payload)
 }
 
 func (o *GetLeagueEntriesExpGatewayTimeout) GetPayload() *models.APIError {

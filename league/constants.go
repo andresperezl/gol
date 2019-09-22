@@ -58,3 +58,15 @@ const (
 func (d Division) String() string {
 	return string(d)
 }
+
+type ApexLeague string
+
+const (
+	LeagueChallenger ApexLeague = "challenger"
+	LeagueGrandmaster ApexLeague = "grandmaster"
+	LeagueMaster ApexLeague = "master"
+)
+
+func (al ApexLeague) String() string {
+	return string(al)
+}

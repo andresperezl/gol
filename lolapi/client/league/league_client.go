@@ -27,6 +27,41 @@ type Client struct {
 }
 
 /*
+GetApexLeague gets the challenger league for given queue
+*/
+func (a *Client) GetApexLeague(params *GetApexLeagueParams, authInfo runtime.ClientAuthInfoWriter) (*GetApexLeagueOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetApexLeagueParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getApexLeague",
+		Method:             "GET",
+		PathPattern:        "/league/v4/{apexLeague}leagues/by-queue/{queue}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetApexLeagueReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetApexLeagueOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for getApexLeague: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
 GetLeagueEntriesExp gets all the league entries
 
 At the request of a GitHub issue, we've added an experimental league-exp-v4 endpoint. This new endpoint is a duplicate of the endpoint in league-v4, but it also supports the apex tiers (Challenger, Grandmaster, and Master). In November we'll evaluate whether this endpoint delivers enough value to merit its continual support.
@@ -40,7 +75,7 @@ func (a *Client) GetLeagueEntriesExp(params *GetLeagueEntriesExpParams, authInfo
 	result, err := a.transport.Submit(&runtime.ClientOperation{
 		ID:                 "getLeagueEntriesExp",
 		Method:             "GET",
-		PathPattern:        "/lol/league-exp/v4/entries/{queue}/{tier}/{division}",
+		PathPattern:        "/league-exp/v4/entries/{queue}/{tier}/{division}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
